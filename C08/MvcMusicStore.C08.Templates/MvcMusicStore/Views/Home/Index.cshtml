@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>MVC Music Store</h1>
+    <img src="~/Images/home-showcase.png" />
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Artist search</div>
+    <div class="panel-body">
+        <form id="artistSearch" method="get" action="@Url.Action("ArtistSearch", "Home")">
+            <input type="text" name="q"
+                   data-autocomplete-source="@Url.Action("QuickSearch", "Home")" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader" src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        </form>
+
+        <script id="artistTemplate" type="text/html">
+            <ul>
+                {{#artists}}
+                <li>{{Name}}</li>
+                {{/artists}}
+            </ul>
+        </script>
+
+        <div id="searchresults"></div>
+    </div>
+</div>
+
+<ul class="row list-unstyled" id="album-list">
+    @foreach (var album in Model)
+    {
+        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-4 container">
+            <a href="@Url.Action("Details", "Store", new { id = album.AlbumId })">
+                <img alt="@album.Title" src="@Url.Content( @album.AlbumArtUrl)" />
+                <h4>@album.Title</h4>
+            </a>
+        </li>
+    }
+</ul>
+
+<div id="dailydeal">
+    @Ajax.ActionLink("Click here to see today's special!",
+        "DailyDeal",
+        null,
+        new AjaxOptions
+        {
+            UpdateTargetId = "dailydeal",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET"
+        },
+        new { @class = "btn btn-primary" })
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/App/MusicScripts.js"></script>
+}
