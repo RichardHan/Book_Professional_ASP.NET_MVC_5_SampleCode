@@ -1,0 +1,10 @@
+Install-Package Wrox.ProMvc5.Views.ViewModel
+
+
+
+Adter installed,
+
+~/Samples/ShoppingCartViewModel/ProductModel.cs
+~/Samples/ShoppingCartViewModel/ShoppingCartController.cs
+~/Samples/ShoppingCartViewModel/ShoppingCartViewModel.cs
+~/Views/ShoppingCart/Index.cshtml
