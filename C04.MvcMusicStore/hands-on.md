@@ -119,9 +119,7 @@ Enable EF sql dump , EF version above v6.1 (devlopement suggestion)
 
   Update-Package -Reinstall "EntityFramework" , add reference "System.Data.Entity"
 
-  ...
   <entityFramework>
-    ...
     <interceptors>
       <interceptor type="System.Data.Entity.Infrastructure.Interception.DatabaseLogger, EntityFramework">
         <parameters>
@@ -130,7 +128,6 @@ Enable EF sql dump , EF version above v6.1 (devlopement suggestion)
       </interceptor>
     </interceptors>
   </entityFramework>
-  ...
 
 Overview - Building a Resource to Edit an Album
 
