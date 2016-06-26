@@ -48,12 +48,8 @@ Create 'Album' 'Artist' 'Genre' three simple public class
 [Optional] Add MusicStoreDB connection string in web.config (must installed localdb first)
 
 	<connectionStrings>
-		...
-
 	    <add name="MusicStoreDB" connectionString="Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=MusicStoreDB-20130929160340; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|MusicStoreDB-2016061914000.mdf"
 	      providerName="System.Data.SqlClient" />
-
-	    ...
 	</connectionStrings>
 
 Executing the Scaffolding Template
